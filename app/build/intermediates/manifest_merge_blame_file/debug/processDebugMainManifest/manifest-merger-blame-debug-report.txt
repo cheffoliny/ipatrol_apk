@@ -1,0 +1,109 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.intelli.ipatrol"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+13-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:7:5-85
+13-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:7:22-82
+14
+15    <permission
+15-->[androidx.core:core:1.9.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\120c5abbf699896ca67ae2222f6c5af1\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+16        android:name="com.intelli.ipatrol.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+16-->[androidx.core:core:1.9.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\120c5abbf699896ca67ae2222f6c5af1\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+17        android:protectionLevel="signature" />
+17-->[androidx.core:core:1.9.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\120c5abbf699896ca67ae2222f6c5af1\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+18
+19    <uses-permission android:name="com.intelli.ipatrol.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- For Android 10+ -->
+19-->[androidx.core:core:1.9.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\120c5abbf699896ca67ae2222f6c5af1\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+19-->[androidx.core:core:1.9.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\120c5abbf699896ca67ae2222f6c5af1\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+20    <application
+20-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:9:5-25:19
+21        android:allowBackup="true"
+21-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:10:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.9.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\120c5abbf699896ca67ae2222f6c5af1\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+23        android:debuggable="true"
+24        android:extractNativeLibs="false"
+25        android:icon="@mipmap/ic_launcher"
+25-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:11:9-43
+26        android:label="@string/app_name"
+26-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:12:9-41
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:13:9-54
+28        android:supportsRtl="true"
+28-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:14:9-35
+29        android:testOnly="true"
+30        android:theme="@style/Theme.AppCompat" >
+30-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:15:9-47
+31        <activity
+31-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:16:9-23:20
+32            android:name="com.intelli.ipatrol.MainActivity"
+32-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:17:13-41
+33            android:exported="true" >
+33-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:18:13-36
+34            <intent-filter>
+34-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:19:13-22:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:20:17-69
+35-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:20:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:21:17-77
+37-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:21:27-74
+38            </intent-filter>
+39        </activity>
+40        <activity android:name="com.intelli.ipatrol.SettingsActivity" />
+40-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:24:9-54
+40-->C:\wamp64\Android\ipatrol\app\src\main\AndroidManifest.xml:24:19-51
+41        <activity
+41-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\176df48a84aa4f7c83be392c9be4269f\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+42            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+42-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\176df48a84aa4f7c83be392c9be4269f\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+43            android:exported="false"
+43-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\176df48a84aa4f7c83be392c9be4269f\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+44            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+44-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\176df48a84aa4f7c83be392c9be4269f\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+45
+46        <meta-data
+46-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\197ee6a12177d7a933c4f22851f3f385\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+47            android:name="com.google.android.gms.version"
+47-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\197ee6a12177d7a933c4f22851f3f385\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+48            android:value="@integer/google_play_services_version" />
+48-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\197ee6a12177d7a933c4f22851f3f385\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+49
+50        <provider
+50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+52            android:authorities="com.intelli.ipatrol.androidx-startup"
+52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+53            android:exported="false" >
+53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\76c25362af12ba6300443bc133b8b5a0\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\14041962c88939bf596b09ec54e6ae0c\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\14041962c88939bf596b09ec54e6ae0c\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\IT\.gradle\caches\9.0-milestone-1\transforms\14041962c88939bf596b09ec54e6ae0c\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+60        </provider>
+61    </application>
+62
+63</manifest>

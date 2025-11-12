@@ -1,0 +1,18 @@
+R_DEF: Internal format may change without notice
+local
+id buttonSave
+id menu_settings
+id radioGroupServers
+id radioServer1
+id radioServer2
+id webView
+layout activity_main
+layout activity_settings
+menu main_menu
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string select_server
+string server1
+string server2
+string settings
