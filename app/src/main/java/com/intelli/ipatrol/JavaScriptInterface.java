@@ -1,6 +1,6 @@
 package com.intelli.ipatrol;
 
-import android.content.Context;
+import android.webkit.JavascriptInterface;
 
 public class JavaScriptInterface {
     private MainActivity activity;
@@ -9,8 +9,15 @@ public class JavaScriptInterface {
         this.activity = activity;
     }
 
-    @android.webkit.JavascriptInterface
+    @JavascriptInterface
     public void playSound(String filename, String looping) {
         activity.playSound(filename, looping);
     }
+
+    // ✔ Нов метод — JS извиква Android
+    @JavascriptInterface
+    public void requestGPS() {
+        activity.getLocationForJS();
+    }
+
 }

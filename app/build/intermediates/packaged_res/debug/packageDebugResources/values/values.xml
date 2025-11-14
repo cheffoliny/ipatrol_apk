@@ -4,5 +4,6 @@
     <string name="select_server">Select Server</string>
     <string name="server1">https://ipatrolm.infra-lg.com</string>
     <string name="server2">https://ipatrolb.infra-lg.com</string>
+    <string name="server3">https://ipatroln.infra-lg.com</string>
     <string name="settings">Settings</string>
 </resources>

@@ -3386,6 +3386,7 @@ id radio
 id radioGroupServers
 id radioServer1
 id radioServer2
+id radioServer3
 id ratio
 id rectangles
 id reverseSawtooth
@@ -3915,6 +3916,7 @@ string searchview_navigation_content_description
 string select_server
 string server1
 string server2
+string server3
 string settings
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior

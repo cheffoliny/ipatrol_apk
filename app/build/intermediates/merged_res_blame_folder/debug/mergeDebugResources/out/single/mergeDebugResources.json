@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-debug-30:\\mipmap_ic_launcher.xml.flat",
+        "source": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-main-32:\\mipmap\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-debug-30:\\mipmap_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-main-32:\\mipmap\\ic_launcher_round.xml"
+    },
+    {
         "merged": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-debug-30:\\menu_main_menu.xml.flat",
         "source": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-main-32:\\menu\\main_menu.xml"
     },
@@ -8,15 +16,11 @@
         "source": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-main-32:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.intelli.ipatrol.app-debug-30:/mipmap_ic_launcher_round.xml.flat",
-        "source": "com.intelli.ipatrol.app-main-32:/mipmap/ic_launcher_round.xml"
-    },
-    {
         "merged": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-debug-30:\\layout_activity_settings.xml.flat",
         "source": "C:\\Users\\IT\\.gradle\\daemon\\9.0-milestone-1\\com.intelli.ipatrol.app-main-32:\\layout\\activity_settings.xml"
     },
     {
-        "merged": "com.intelli.ipatrol.app-debug-30:/mipmap_ic_launcher.xml.flat",
-        "source": "com.intelli.ipatrol.app-main-32:/mipmap/ic_launcher.xml"
+        "merged": "com.intelli.ipatrol.app-debug-30:/layout_activity_settings.xml.flat",
+        "source": "com.intelli.ipatrol.app-main-32:/layout/activity_settings.xml"
     }
 ]

@@ -3385,6 +3385,7 @@ int id radio 0x7f08015a
 int id radioGroupServers 0x7f08015b
 int id radioServer1 0x7f08015c
 int id radioServer2 0x7f08015d
+int id radioServer3 0x7f0801f9
 int id ratio 0x7f08015e
 int id rectangles 0x7f08015f
 int id reverseSawtooth 0x7f080160
@@ -3914,6 +3915,7 @@ int string searchview_navigation_content_description 0x7f1000ad
 int string select_server 0x7f1000ae
 int string server1 0x7f1000af
 int string server2 0x7f1000b0
+int string server3 0x7f1000b5
 int string settings 0x7f1000b1
 int string side_sheet_accessibility_pane_title 0x7f1000b2
 int string side_sheet_behavior 0x7f1000b3

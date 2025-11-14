@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="horizontal"
+    android:padding="2dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,8 +13,10 @@
 
     <RadioGroup
         android:id="@+id/radioGroupServers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/radioServer1"
@@ -27,6 +29,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/server2" />
+
+        <RadioButton
+            android:id="@+id/radioServer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/server3" />
     </RadioGroup>
 
     <Button

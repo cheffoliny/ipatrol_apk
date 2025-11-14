@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String SERVER1;
     private String SERVER2;
+    private String SERVER3;
     private static final String PREFS_NAME = "AppPrefs";
     private static final String KEY_SELECTED_SERVER = "selected_server";
     private static final int LOCATION_REQUEST_CODE = 100;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // ✅ Зареждаме стойностите от strings.xml ТУК, вече имаме достъп до getResources()
         SERVER1 = getString(R.string.server1);
         SERVER2 = getString(R.string.server2);
+        SERVER3 = getString(R.string.server3);
 
         webView = findViewById(R.id.webView);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -68,11 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Load selected server from prefs
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        selectedServer = prefs.getString(KEY_SELECTED_SERVER, SERVER1);  // Default to SERVER1
+        selectedServer = prefs.getString(KEY_SELECTED_SERVER, SERVER3);  // Default to SERVER1
 
         setupWebView();
         requestLocationPermissions();
-        startLocationUpdates();
     }
     private void setupWebView() {
         WebSettings webSettings = webView.getSettings();
@@ -89,58 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, LOCATION_REQUEST_CODE);
             }
         }
-    }
-
-    private void startLocationUpdates() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                getLocationAndSendIfChanged();
-                handler.postDelayed(this, 5000);  // Every 5 seconds
-            }
-        }, 5000);
-    }
-
-    private void getLocationAndSendIfChanged() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    if (lastLocation == null || location.distanceTo(lastLocation) > 10) {  // Significant change (>10m)
-                        lastLocation = location;
-                        sendLocationToApi(location.getLatitude(), location.getLongitude());
-                    }
-                }
-            }
-        });
-    }
-
-    private void sendLocationToApi(double lat, double lon) {
-        String apiUrl = selectedServer + "/api/log_geo.php";
-        RequestBody formBody = new FormBody.Builder()
-                .add("latitude", String.valueOf(lat))
-                .add("longitude", String.valueOf(lon))
-                .build();
-
-        Request request = new Request.Builder()
-                .url(apiUrl)
-                .post(formBody)
-                .build();
-
-        httpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                // Handle failure
-            }
-
-            @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                // Handle success
-            }
-        });
     }
 
     public void playSound(String filename, String looping) {
@@ -189,13 +138,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_REQUEST_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            startLocationUpdates();
-        } else {
-            Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show();
+    public void getLocationForJS() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
+
+        fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
+            if (location != null) {
+
+                double lat = location.getLatitude();
+                double lng = location.getLongitude();
+
+                float accuracy   = location.hasAccuracy() ? location.getAccuracy() : -1;
+                float speed      = location.hasSpeed() ? location.getSpeed() : -1;
+                float bearing    = location.hasBearing() ? location.getBearing() : -1;
+                double altitude  = location.hasAltitude() ? location.getAltitude() : -1;
+
+                String js = String.format(
+                        "window.receiveGPS(%f, %f, %f, %f, %f, %f);",
+                        lat, lng, accuracy, speed, bearing, altitude
+                );
+
+                runOnUiThread(() -> webView.evaluateJavascript(js, null));
+            }
+        });
     }
+
+
 }
