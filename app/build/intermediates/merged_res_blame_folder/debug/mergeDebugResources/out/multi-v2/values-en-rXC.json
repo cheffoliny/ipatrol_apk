@@ -4,7 +4,7 @@
             "outputFile": "com.intelli.ipatrol.app-mergeDebugResources-28:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\IT\\.gradle\\caches\\9.0-milestone-1\\transforms\\120c5abbf699896ca67ae2222f6c5af1\\transformed\\core-1.9.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\IT\\.gradle\\caches\\9.0-milestone-1\\transforms\\147b9fc2227ed1889920dab792faa2c4\\transformed\\core-1.9.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\IT\\.gradle\\caches\\9.0-milestone-1\\transforms\\4a4371b9d808b05c6c2d9107100c004f\\transformed\\appcompat-1.6.1\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\IT\\.gradle\\caches\\9.0-milestone-1\\transforms\\16ba1f04364312f3db641fb576a33837\\transformed\\appcompat-1.6.1\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

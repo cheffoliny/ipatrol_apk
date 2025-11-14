@@ -4,7 +4,7 @@
             "outputFile": "com.intelli.ipatrol.app-mergeDebugResources-28:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\IT\\.gradle\\caches\\9.0-milestone-1\\transforms\\4a4371b9d808b05c6c2d9107100c004f\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\IT\\.gradle\\caches\\9.0-milestone-1\\transforms\\16ba1f04364312f3db641fb576a33837\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

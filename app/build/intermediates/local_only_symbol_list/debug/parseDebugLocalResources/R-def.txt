@@ -5,6 +5,7 @@ id menu_settings
 id radioGroupServers
 id radioServer1
 id radioServer2
+id radioServer3
 id webView
 layout activity_main
 layout activity_settings
@@ -15,4 +16,5 @@ string app_name
 string select_server
 string server1
 string server2
+string server3
 string settings
