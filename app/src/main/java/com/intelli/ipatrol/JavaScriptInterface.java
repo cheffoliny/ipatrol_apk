@@ -14,10 +14,9 @@ public class JavaScriptInterface {
         activity.playSound(filename, looping);
     }
 
-    // ✔ Нов метод — JS извиква Android
+    // JS може да поиска еднократно GPS (backwards compatibility)
     @JavascriptInterface
     public void requestGPS() {
         activity.getLocationForJS();
     }
-
 }
