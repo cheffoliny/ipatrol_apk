@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -25,7 +27,10 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
+import org.json.JSONObject;
+
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 // send last/fresh location to JS for each update
                 Location location = locationResult.getLastLocation();
                 if (location != null) {
-                    sendLocationToJS(location);
+                   // sendLocationToJS(location);
                 }
             }
         };
@@ -124,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 == PackageManager.PERMISSION_GRANTED) {
             startLocationUpdates();
         }
+
     }
 
     @Override
@@ -166,37 +172,76 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // sends location to JS callback: window.receiveGPS(lat, lng, acc, speed, bearing, altitude)
-    private void sendLocationToJS(Location location) {
-        double lat = location.getLatitude();
-        double lng = location.getLongitude();
-        float accuracy = location.hasAccuracy() ? location.getAccuracy() : -1f;
-        float speed = location.hasSpeed() ? location.getSpeed() : -1f;
-        float bearing = location.hasBearing() ? location.getBearing() : 0f;
-        double altitude = location.hasAltitude() ? location.getAltitude() : -1d;
-
-        // Ensure numeric formattable string with dot decimal separator
-        DecimalFormat df = new DecimalFormat("0.000000000000");
-        String js = String.format("window.receiveGPS(%s, %s, %s, %s, %s, %s);",
-                df.format(lat), df.format(lng),
-                Float.toString(accuracy), Float.toString(speed),
-                Float.toString(bearing), Double.toString(altitude));
-
-        runOnUiThread(() -> webView.evaluateJavascript(js, null));
-    }
+//    private void sendLocationToJS(Location location) {
+//        double lat = location.getLatitude();
+//        double lng = location.getLongitude();
+//        float accuracy = location.hasAccuracy() ? location.getAccuracy() : -1f;
+//        float speed = location.hasSpeed() ? location.getSpeed() : -1f;
+//        float bearing = location.hasBearing() ? location.getBearing() : 0f;
+//        double altitude = location.hasAltitude() ? location.getAltitude() : -1d;
+//
+//        // Ensure numeric formattable string with dot decimal separator
+//        DecimalFormat df = new DecimalFormat("0.000000000000");
+//        String js = String.format("window.receiveGPS(%s, %s, %s, %s, %s, %s);",
+//                df.format(lat), df.format(lng),
+//                Float.toString(accuracy), Float.toString(speed),
+//                Float.toString(bearing), Double.toString(altitude));
+//
+//        runOnUiThread(() -> webView.evaluateJavascript(js, null));
+//    }
 
     // Public method used by JavaScriptInterface.requestGPS()
+//    public void getLocationForJS() {
+//        // single-shot: try to get last known location and send it
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            return;
+//        }
+//        fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
+//            if (location != null) {
+//                sendLocationToJS(location);
+//            }
+//        });
+//    }
+
     public void getLocationForJS() {
-        // single-shot: try to get last known location and send it
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             return;
         }
+
         fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
             if (location != null) {
-                sendLocationToJS(location);
+
+                double lat = location.getLatitude();
+                double lng = location.getLongitude();
+                float accuracy   = location.hasAccuracy() ? location.getAccuracy() : -1f;
+                float speed      = location.hasSpeed() ? location.getSpeed() : -1f;
+                float bearing    = location.hasBearing() ? location.getBearing() : -1f;
+                double altitude  = location.hasAltitude() ? location.getAltitude() : -1d;
+
+                try {
+                    JSONObject json = new JSONObject();
+                    json.put("lat", lat);
+                    json.put("lng", lng);
+                    json.put("accuracy", accuracy);
+                    json.put("speed", speed);
+                    json.put("bearing", bearing);
+                    json.put("altitude", altitude);
+
+                    String safe = JSONObject.quote(json.toString());
+
+                    String js = "window.receiveGPSJSON(" + safe + ");";
+
+                    runOnUiThread(() -> webView.evaluateJavascript(js, null));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
+
 
     // Media player control (kept as you had it)
     public void playSound(String filename, String looping) {
@@ -216,6 +261,22 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.setLooping("true".equals(looping));
             mediaPlayer.start();
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menu_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
